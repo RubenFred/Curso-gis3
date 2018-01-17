@@ -82,8 +82,21 @@
         wrapDateLine: true,
     	numZoomLevels: 19
 	    });
-
 	    map.addLayer(mapboxLayer);
+		
+	    // utilizando servicio WMS
+		/*
+	     var departamentos_wms = new OpenLayers.Layer.WMS(
+	        "Sub-Cuencas de Bolivia",
+            "http://geo.gob.bo/geoserver/wms",
+            {layers: 'fondos:departamento1'},
+            {isBaselayer: false, 
+             transparent: true
+            }
+		);
+
+	     map.addLayer(departamentos_wms);
+		 */
 		
 		
 		
@@ -91,6 +104,10 @@
         var controlCapas = new OpenLayers.Control.LayerSwitcher();
         map.addControl(controlCapas); 	
 
+		// control de posicion del cursor
+		var controlCursor = new OpenLayers.Control.MousePosition();
+		map.addControl(controlCursor);
+		
 		// control ventana pequeña emergente
 		var controlOverview = new OpenLayers.Control.OverviewMap();
 		map.addControl(controlOverview);		
