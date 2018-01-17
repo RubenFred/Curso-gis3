@@ -66,7 +66,11 @@
 		
 		//  control de cambio de capas
         var controlCapas = new OpenLayers.Control.LayerSwitcher();
-        map.addControl(controlCapas); 		
+        map.addControl(controlCapas); 	
+
+		// control ventana pequeña emergente
+		var controlOverview = new OpenLayers.Control.OverviewMap();
+		map.addControl(controlOverview);		
 				
 	
 	
