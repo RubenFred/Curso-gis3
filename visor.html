@@ -8,6 +8,8 @@
 	
 	<script async defer src="https://maps.googleapis.com/maps/api/js?key= AIzaSyAWGV-uEDtw1I-Oo3jOEaWhd9rTifR_0VE &callback=initMap"
   type="text/javascript"></script>
+  
+  <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js"></script>
 	
 <style type="text/css">
 	html,body {
@@ -64,6 +66,12 @@
 								   
 		map.addLayers([layerGoogleHibrido, layerGoogleSatelital, layerGoogleTerrain]);
 		
+		// capa stamen
+		var layerStamen = new OpenLayers.Layer.Stamen("toner");
+		map.addLayer(layerStamen);
+		
+		
+		
 		//  control de cambio de capas
         var controlCapas = new OpenLayers.Control.LayerSwitcher();
         map.addControl(controlCapas); 	
@@ -73,10 +81,7 @@
 		map.addControl(controlOverview);		
 				
 	
-	
 	}	
-	
-	
 	
 	// cargando la funcion init, para desplegar en mapa
 	window.onload=init;
