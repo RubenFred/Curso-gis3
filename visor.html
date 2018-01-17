@@ -37,7 +37,7 @@
 <script type="text/javascript">
 	
 	var init=function(){
-		var proyeccion=new OpenLayers.Projection("EPSG:4326");
+		var proyeccion=new OpenLayers.Projection("EPSG:900913");
 		
 		var controlNavegacion=new OpenLayers.Control.Navigation();   // objs tipo control
 		var controlZoom=new OpenLayers.Control.PanZoomBar();
@@ -84,20 +84,16 @@
 	    });
 	    map.addLayer(mapboxLayer);
 		
-	    // utilizando servicio WMS
-		/*
-	     var departamentos_wms = new OpenLayers.Layer.WMS(
-	        "Sub-Cuencas de Bolivia",
-            "http://geo.gob.bo/geoserver/wms",
-            {layers: 'fondos:departamento1'},
-            {isBaselayer: false, 
-             transparent: true
-            }
-		);
-
-	     map.addLayer(departamentos_wms);
-		 */
-		
+		// Capa consumiendo servicio WMS
+		var nombreWMS = "Límites departamentales";
+		var urlWMS = "http://geo.gob.bo/geoserver/wms";
+		var propiedadesWMS = {
+			layers: 'fondos:departamento1',
+			transparent: true
+		    };
+		var layerDepartamentosWMS = new OpenLayers.Layer.WMS(nombreWMS, urlWMS, propiedadesWMS);
+		map.addLayer(layerDepartamentosWMS);
+			
 		
 		
 		//  control de cambio de capas
