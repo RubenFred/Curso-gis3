@@ -105,7 +105,19 @@
 		);
 		map.addLayer(layerCuencas);
 		
-		
+		//  layer con archivo JSON
+		var layerJson = new OpenLayers.Layer.Vector(
+			"Capa Uyuni-json",
+			{
+				projection: new OpenLayers.Projection("4326"),
+				strategies: [new OpenLayers.Strategy.Fixed()],
+				protocol: new OpenLayers.Protocol.HTTP({
+					url: './salar_uyuni.json',
+					format: new OpenLayers.Format.GeoJSON()
+				})
+			}
+		);
+		map.addLayer(layerJson);
 		
 		//  control de cambio de capas
         var controlCapas = new OpenLayers.Control.LayerSwitcher();
