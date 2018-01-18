@@ -109,7 +109,7 @@
 		var layerJson = new OpenLayers.Layer.Vector(
 			"Capa Uyuni-json",
 			{
-				projection: new OpenLayers.Projection("4326"),
+				projection: new OpenLayers.Projection("EPSG:4326"),
 				strategies: [new OpenLayers.Strategy.Fixed()],
 				protocol: new OpenLayers.Protocol.HTTP({
 					url: './salar_uyuni.json',
