@@ -94,6 +94,17 @@
 		var layerDepartamentosWMS = new OpenLayers.Layer.WMS(nombreWMS, urlWMS, propiedadesWMS);
 		map.addLayer(layerDepartamentosWMS);
 			
+		// Layer WMS desde geoserver Local
+		var layerCuencas = new OpenLayers.Layer.WMS(
+			"Mapa Cuencas",
+			"http://192.168.42.33:8080/geoserver/wms",
+			{
+				layers: 'curso-gis:cuencas_nivel_1',
+				transparent: true   // para q sea como capa
+			}
+		);
+		map.addLayer(layerCuencas);
+		
 		
 		
 		//  control de cambio de capas
